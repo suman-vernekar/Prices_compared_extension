@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PricePulse</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <span class="logo-pulse">⚡</span>
+        <h1>PricePulse</h1>
+      </div>
+      <span class="badge" id="status-badge">READY</span>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="content">
+      <!-- Active Product Card -->
+      <div id="product-card" class="card hidden">
+        <div class="product-header">
+          <h2 id="product-title" class="title">Detecting product...</h2>
+          <div class="platform-meta">
+            <span id="product-platform" class="platform-tag">--</span>
+            <span id="product-id" class="id-tag">--</span>
+          </div>
+        </div>
+
+        <div class="price-display">
+          <div class="price-header">
+            <span class="price-label">Live Observed Price</span>
+            <span id="price-change-pill" class="change-pill hidden">-0%</span>
+          </div>
+          <div class="price-value" id="product-price">--</div>
+        </div>
+
+        <!-- Target Price Alert Box -->
+        <div class="target-price-box">
+          <label for="target-price-input" class="input-label">Notify if price drops below:</label>
+          <div class="input-group">
+            <input type="text" id="target-price-input" placeholder="e.g. 4200" autocomplete="off">
+            <button id="save-target-btn" class="btn btn-secondary">Set Alert</button>
+          </div>
+          <div id="target-feedback" class="target-feedback hidden">Target saved!</div>
+        </div>
+
+        <div class="meta-row">
+          <span class="indicator active"></span>
+          <span id="monitoring-status" class="status-text">Active DOM Observer running</span>
+        </div>
+
+        <div class="observer-controls" style="display: flex; gap: 8px; margin-bottom: 10px;">
+          <button id="toggle-observer-btn" class="btn btn-secondary" style="flex: 1;">Pause Observer</button>
+          <button id="manual-check-btn" class="btn btn-secondary" style="flex: 1;">Check Price</button>
+        </div>
+
+        <button id="track-btn" class="btn btn-primary">Track Product in Dashboard</button>
+      </div>
+
+      <!-- Idle / Unsupported Page View -->
+      <div id="idle-card" class="card idle-state">
+        <div class="idle-icon">🔍</div>
+        <h3>No Product Detected</h3>
+        <p>Open the local test harness or a supported product page to start real-time tracking.</p>
+        <button id="refresh-detection-btn" class="btn btn-secondary" style="margin-top: 10px;">Retry Detection</button>
+      </div>
+
+      <!-- Real-Time Event Stream Log -->
+      <section class="history-section">
+        <div class="section-title">
+          <span>Observed Price Transitions</span>
+          <div class="history-actions">
+            <span class="count-badge" id="event-count">0</span>
+            <button id="clear-history-btn" class="btn-text" title="Clear history">Clear</button>
+          </div>
+        </div>
+        <ul id="event-list" class="event-list">
+          <li class="empty-state">No price changes recorded yet.</li>
+        </ul>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <span>PricePulse • Manifest V3</span>
+      <span id="connection-indicator" class="connection-status">Online</span>
+    </footer>
+  </div>
+
+  <!-- Load Storage Utility first, then Controller -->
+  <script src="../utils/storage.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

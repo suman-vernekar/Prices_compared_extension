@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sony WH-1000XM5 Wireless Headphones | PricePulse Test Page</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --border: #334155;
+      --primary: #3b82f6;
+      --success: #10b981;
+      --danger: #ef4444;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      padding: 30px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 900px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+    }
+
+    .card-title {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Product Showcase */
+    .product-preview {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .product-image-box {
+      width: 100%;
+      height: 220px;
+      background: #090d16;
+      border: 1px dashed var(--border);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 60px;
+    }
+
+    .badge-stock {
+      display: inline-block;
+      align-self: flex-start;
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--success);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 3px 10px;
+      border-radius: 9999px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    h1.product-title {
+      font-size: 20px;
+      line-height: 1.35;
+      color: #ffffff;
+    }
+
+    .price-box {
+      background: #090d16;
+      padding: 14px 18px;
+      border-radius: 8px;
+      border-left: 4px solid var(--primary);
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    .price-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .current-price {
+      font-size: 32px;
+      font-weight: 800;
+      color: #38bdf8;
+      letter-spacing: -0.03em;
+      transition: color 0.3s ease;
+    }
+
+    .current-price.drop-highlight {
+      color: #34d399;
+      animation: pulse 1s ease;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+      100% { transform: scale(1); }
+    }
+
+    /* Controller Panel */
+    .controls {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .btn-group {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    button {
+      padding: 10px 14px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      background: #334155;
+      color: #ffffff;
+      transition: all 0.15s ease;
+    }
+
+    button:hover {
+      background: #475569;
+    }
+
+    button.btn-drop {
+      background: rgba(16, 185, 129, 0.2);
+      border-color: rgba(16, 185, 129, 0.4);
+      color: #34d399;
+    }
+    button.btn-drop:hover {
+      background: rgba(16, 185, 129, 0.3);
+    }
+
+    button.btn-sale {
+      background: rgba(59, 130, 246, 0.2);
+      border-color: rgba(59, 130, 246, 0.4);
+      color: #60a5fa;
+    }
+    button.btn-sale:hover {
+      background: rgba(59, 130, 246, 0.3);
+    }
+
+    button.btn-reset {
+      background: rgba(239, 68, 68, 0.15);
+      border-color: rgba(239, 68, 68, 0.3);
+      color: #f87171;
+    }
+    button.btn-reset:hover {
+      background: rgba(239, 68, 68, 0.25);
+    }
+
+    .custom-input-box {
+      display: flex;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    input[type="text"] {
+      flex: 1;
+      padding: 8px 12px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: #090d16;
+      color: #ffffff;
+      font-size: 13px;
+    }
+
+    .log-container {
+      margin-top: 10px;
+      background: #090d16;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 10px;
+      max-height: 160px;
+      overflow-y: auto;
+      font-family: monospace;
+      font-size: 11px;
+    }
+
+    .log-item {
+      padding: 4px 0;
+      border-bottom: 1px solid #1e293b;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .log-item:last-child {
+      border-bottom: none;
+    }
+
+    .tip {
+      font-size: 11px;
+      color: var(--text-muted);
+      line-height: 1.5;
+      background: rgba(59, 130, 246, 0.08);
+      border-left: 3px solid var(--primary);
+      padding: 8px 12px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- E-Commerce Product Showcase -->
+    <div class="card product-preview">
+      <div class="card-title">🛒 Mock Ecommerce Storefront</div>
+      
+      <div class="product-image-box" id="product-image" data-pricepulse="image">
+        🎧
+      </div>
+
+      <div style="display: flex; gap: 8px; align-items: center;">
+        <span class="badge-stock">In Stock & Verified</span>
+        <span style="font-size: 11px; color: var(--text-muted); font-family: monospace;">SKU: LOCAL-SONY-WH1000XM5</span>
+      </div>
+
+      <h1 id="product-title" data-pricepulse="title" class="product-title">
+        Sony WH-1000XM5 Wireless Industry Leading Noise Canceling Headphones
+      </h1>
+
+      <div class="price-box">
+        <span class="price-label">Price:</span>
+        <span id="product-price" data-pricepulse="price" class="current-price">₹4,999</span>
+      </div>
+
+      <div class="tip">
+        <strong>Deterministic Test Target:</strong> The PricePulse Content Script listens to mutations directly on <code>#product-price</code>.
+      </div>
+    </div>
+
+    <!-- Live Testing & Simulation Controls -->
+    <div class="card controls">
+      <div class="card-title">⚡ Price Mutation Simulator</div>
+      
+      <p style="font-size: 12px; color: var(--text-muted);">
+        Click any button below to mutate the DOM price. The PricePulse extension's <code>MutationObserver</code> will intercept the change in real time.
+      </p>
+
+      <div class="btn-group">
+        <button class="btn-drop" onclick="updatePrice('₹4,499')">Drop to ₹4,499 (-10%)</button>
+        <button class="btn-sale" onclick="updatePrice('₹4,199')">Flash Deal ₹4,199 (-16%)</button>
+      </div>
+
+      <div class="btn-group">
+        <button onclick="updatePrice('₹4,999')">Same ₹4,999 (No Op)</button>
+        <button class="btn-reset" onclick="updatePrice('₹4,999')">Reset Baseline</button>
+      </div>
+
+      <div>
+        <label style="font-size: 11px; color: var(--text-muted); display: block; margin-bottom: 4px;">Custom Price Mutation:</label>
+        <div class="custom-input-box">
+          <input type="text" id="custom-price-input" placeholder="e.g. ₹3,850 or $199.99">
+          <button onclick="applyCustomPrice()">Apply</button>
+        </div>
+      </div>
+
+      <div class="card-title" style="margin-top: 10px; margin-bottom: 6px;">DOM Event Log</div>
+      <div id="log-list" class="log-container">
+        <div class="log-item">
+          <span>Initial DOM initialized: ₹4,999</span>
+          <span style="color: var(--text-muted);">Loaded</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const priceEl = document.getElementById('product-price');
+    const logList = document.getElementById('log-list');
+
+    function updatePrice(newPrice) {
+      const oldPrice = priceEl.textContent.trim();
+      priceEl.textContent = newPrice;
+
+      // Visual flash
+      priceEl.classList.remove('drop-highlight');
+      void priceEl.offsetWidth; // trigger reflow
+      priceEl.classList.add('drop-highlight');
+
+      // Log mutation
+      const item = document.createElement('div');
+      item.className = 'log-item';
+      const time = new Date().toLocaleTimeString();
+      item.innerHTML = `<span>DOM Changed: ${oldPrice} &rarr; <strong>${newPrice}</strong></span><span style="color: #94a3b8;">${time}</span>`;
+      logList.insertBefore(item, logList.firstChild);
+    }
+
+    function applyCustomPrice() {
+      const input = document.getElementById('custom-price-input');
+      const val = input.value.trim();
+      if (val) {
+        updatePrice(val);
+        input.value = '';
+      }
+    }
+  </script>
+</body>
+</html>
